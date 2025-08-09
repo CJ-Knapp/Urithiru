@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap');
+
+/* =========================
+   Theme / Global
+   ========================= */
+:root {
+  --gold: #d4af37;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: relative; /* for overlay positioning */
+  overflow-x: hidden; /* prevent horizontal scroll from blur edges */
+
+  /* Pattern + overlay */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* overlay */
+    url("images/art-deco-fan-2.png"); /* pattern */
+  background-repeat: repeat;
+  background-size: 200px 200px; /* adjust tile size */
+  background-attachment: fixed;
+}
+
+/* =========================
+   Logo (engraved plate)
+   ========================= */
+.logo {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  line-height: 1.1;
+
+  /* Plate fill and separation from busy bg */
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+
+  /* Borders */
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+
+  /* Tight vertical padding, comfortable horizontal */
+  padding: 0.15rem 0.95rem;
+
+  /* Engraved effect */
+  color: var(--gold);
+  -webkit-text-stroke: 0.45px #000;
+
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  animation-delay: 0.2s;
+  will-change: transform, opacity;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Entrance keyframes */
+@keyframes fadeSlideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Menu Container + Corners
+   ========================= */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  background: rgba(26, 26, 26, 0.95);
+  padding: 1.25rem 2rem 2rem; /* tightened top padding */
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Art Deco corner frames */
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold);
+  z-index: 2;
+}
+
+.container::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.container::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Optional helper corners (if you add the extra .corner divs) */
+.container .corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold);
+  z-index: 2;
+}
+
+.container .corner.top-right {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.container .corner.bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1,
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  text-transform: none; /* natural case in headings */
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem; /* default; container overrides below */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0; /* the logo acts as main title visually */
+  word-wrap: break-word;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+li {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px dotted #555;
+  word-wrap: break-word;
+}
+
+li strong {
+  color: #ffd700;
+}
+/* ===== Two-column drink layout ===== */
+.container ul.drinks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;     /* row gap | column gap */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;      /* keeps your section spacing */
+}
+
+/* Collapse to one column on mobile */
+@media (max-width: 700px) {
+  .container ul.drinks-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem 0.75rem;
+  }
+}
+
+/* Each drink card */
+.drink-card {
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+  border-bottom: none;      /* removes dotted rule from earlier li style */
+}
+
+/* Fancy gold titles (Deco vibe) */
+.drink-title {
+  margin: 0 0 0.25rem;
+  font-family: 'Cinzel', serif; /* or swap to Cinzel if you want sharper Deco */
+  font-weight: 300;
+  font-size: 1.5rem;       /* bigger than ingredients */
+  letter-spacing: 0.06rem;
+  text-transform: none;/* optional: remove if you prefer proper case */
+  color: var(--gold);
+  
+  -webkit-text-stroke: 0.3px #000; /* subtle engraved edge */
+  line-height: 1.15;
+}
+
+/* Crisp, smaller ingredient line */
+.drink-ingredients {
+  margin: 0;
+  font-family: 'Jost', sans-serif; /* crisp + geometric */
+  font-weight: 200;                /* thin weight */
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #e6e6e6;
+  opacity: 0.95;
+  letter-spacing: 0.02rem;         /* slight space for clarity */
+}
+
+
+/* Optional: tiny Deco divider above ingredients */
+.drink-ingredients::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin: 0.4rem auto 0.35rem;
+  background: linear-gradient(
+    to right,
+    transparent 0,
+    var(--gold) 25%,
+    var(--gold) 75%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+
+/* =========================
+   Heading & List Spacing (Refined)
+   ========================= */
+.container h1 {
+  margin-top: 0;         /* no extra gap at the top of container */
+  margin-bottom: 1rem;   /* space before first section header */
+}
+
+/* Centered section headers with Art Deco side lines */
+.container h2 {
+  /* spacing */
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+
+  /* center + decorative lines */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+
+  /* replace the old underline with side lines */
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Draw the side lines */
+.container h2::before,
+.container h2::after {
+  content: "";
+  display: block;
+  flex: 1 1 0;
+  height: 2px;
+  max-width: 140px;
+  background: linear-gradient(
+    to right,
+    transparent 0,
+    var(--gold) 22%,
+    var(--gold) 78%,
+    transparent 100%
+  );
+}
+
+/* Remove top margin from the first heading in the container,
+   even if helper nodes (e.g., .corner) appear before it */
+.container > :is(h1, h2):first-of-type {
+  margin-top: 0;
+}
+
+/* Lists inside sections */
+.container ul {
+  margin-top: 0;         /* no gap above list after heading */
+  margin-bottom: 1.5rem; /* space after each section’s list */
+}
+
+/* No divider under last item in a section */
+.container ul li:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   Mobile (<= 600px)
+   ========================= */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .logo-text {
+    font-size: 2.4rem;
+    letter-spacing: 0.14rem;
+    padding: 0.1rem 0.75rem;
+    line-height: 1.05;
+    -webkit-text-stroke: 0.4px #000;
+    border-top-width: 1.5px;
+    border-bottom-width: 1.5px;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    gap: 10px;
+  }
+
+  .container h2::before,
+  .container h2::after {
+    max-width: 90px; /* shorter lines on small screens */
+  }
+
+  .container ul {
+    margin-bottom: 1rem;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.3rem; }
+  li { font-size: 1rem; }
+}
