@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&family=Jost:wght@200;400&display=swap');
 
 /* =========================
    Theme / Global
@@ -222,7 +222,7 @@ li strong {
   font-weight: 300;
   font-size: 1.5rem;       /* bigger than ingredients */
   letter-spacing: 0.06rem;
-  text-transform: none;/* optional: remove if you prefer proper case */
+  text-transform: none; /* optional: remove if you prefer proper case */
   color: var(--gold);
   
   -webkit-text-stroke: 0.3px #000; /* subtle engraved edge */
