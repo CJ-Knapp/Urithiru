@@ -502,6 +502,30 @@ li strong {
 }
 .site-nav nav a:hover { color: var(--gold); }
 
+
+/* Brand in sticky header — simple gold wordmark */
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  color: var(--gold, #d4af37);
+  text-decoration: none;
+  -webkit-text-stroke: 0.35px #000; /* subtle edge, not a plate */
+}
+
+/* Hero wordmark — large, clean, no plate/borders */
+.wordmark {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  color: var(--gold, #d4af37);
+  -webkit-text-stroke: 0.45px #000;   /* crisp on dark bg */
+  margin: 0 0 .5rem;
+  /* sizing handled by .hero-title’s clamp; if you want tighter:
+     font-size: clamp(2.4rem, 6vw, 4rem); */
+}
 /* Engraved brand plate (nav-sized) */
 .brand-plate {
   display: inline-block;
