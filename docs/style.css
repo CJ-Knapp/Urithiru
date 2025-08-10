@@ -422,6 +422,18 @@ li strong {
   letter-spacing: .08rem;
 }
 .cta:hover { box-shadow: 0 0 14px rgba(212, 175, 55, 0.35); }
+/* Oaths line under hero subtext */
+.oaths {
+  margin: 0.5rem auto 1.25rem;
+  max-width: 60ch;
+  text-align: center;
+  color: #e6e6e6;
+  letter-spacing: 0.02rem;
+  opacity: 0.95;
+}
+
+/* Slightly tighter hero rhythm */
+.hero-inner .cta { margin-top: 0.25rem; }
 
 /* ===================================== */
 /* Horizontal panels (Pendry-style vibe) */
