@@ -3,64 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Urithiru Cocktail List</title>
-
-  <!-- Styles -->
+  <title>Urithiru — Home</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Logo -->
-  <div class="logo">
-    <h1 class="logo-text">URITHIRU</h1>
-  </div>
+  <!-- Sticky Site Nav -->
 
-  <!-- Menu container -->
-  <div class="container">
-    <!-- Decorative Art Deco Corners -->
-    <div class="corner top-right"></div>
-    <div class="corner bottom-left"></div>
+  <header class="site-nav">
+  <a class="brand" href="./">URITHIRU</a>
+    <nav>
+      <a href="./">Home</a>
+      <a href="./cocktails.html">Libations</a>
+    </nav>
+  </header>
 
-    <!-- Specialty Section -->
-    <h2>Specialty Cocktails</h2>
-    <ul class="drinks-grid">
-      <li class="drink-card">
-        <h3 class="drink-title">Stormlight Elixir</h3>
-        <p class="drink-ingredients">Vodka · Blue Curaçao · Lemon</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Shardbearer’s Old Fashioned</h3>
-        <p class="drink-ingredients">Bourbon · Bitters · Demerara</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Oathgate Martini</h3>
-        <p class="drink-ingredients">Gin · Dry Vermouth · Elderflower</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Sprenfire Sour</h3>
-        <p class="drink-ingredients">Rye · Lemon · Egg White · Spiced Syrup</p>
-      </li>
-    </ul>
 
-    <!-- Classics Section -->
-    <h2>Classic Cocktails</h2>
-    <ul class="drinks-grid">
-      <li class="drink-card">
-        <h3 class="drink-title">Negroni</h3>
-        <p class="drink-ingredients">Gin · Campari · Sweet Vermouth</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Manhattan</h3>
-        <p class="drink-ingredients">Rye · Sweet Vermouth · Bitters</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Margarita</h3>
-        <p class="drink-ingredients">Tequila · Lime · Cointreau</p>
-      </li>
-      <li class="drink-card">
-        <h3 class="drink-title">Martini</h3>
-        <p class="drink-ingredients">Gin or Vodka · Dry Vermouth</p>
-      </li>
-    </ul>
-  </div>
+  <!-- Hero -->
+  <section class="hero">
+   <div class="hero-inner reveal">
+     <h1 class="hero-title wordmark">URITHIRU</h1>
+     <p class="hero-sub">A private, Art Deco hideaway inspired by the Stormlight Archive’s skybound city.</p>
+     <a class="cta" href="./cocktails.html">View the Menu</a>
+   </div>
+  </section>
+
+  <!-- Panels -->
+  <section class="panel panel--alt">
+    <div class="panel-inner reveal">
+      <div class="panel-media">
+        <img src="images/inspiration.jpg" alt="Art Deco lines and luminous gold accents" />
+      </div>
+      <div class="panel-copy">
+        <h2><span>Inspiration</span></h2>
+        <p>Urithiru is named for the legendary city in the <em>Stormlight Archive</em>—a sanctuary, a nexus, a place of light above the storms. Our little version is a nod to that spirit: refuge, ritual, and a touch of wonder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-inner reveal">
+      <div class="panel-copy">
+        <h2><span>Location</span></h2>
+        <p>Tucked in the basement of <strong>Chateau Knapp</strong> (our affectionate nickname for home), Urithiru is a cozy, low‑light retreat—gold on black, clean lines, and the quiet hum of glassware.</p>
+      </div>
+      <div class="panel-media">
+        <img src="images/location.jpg" alt="Cozy basement lounge vibe" />
+      </div>
+    </div>
+  </section>
+
+  <section class="panel panel--alt">
+    <div class="panel-inner reveal">
+      <div class="panel-media">
+        <img src="images/theater.jpg" alt="Adjacent theater room seating and screen" />
+      </div>
+      <div class="panel-copy">
+        <h2><span>Adjacent to the Theater</span></h2>
+        <p>Steps from the theater room, this is the perfect intermission bar—martinis before the feature, amaro after the credits. Dim lights, crisp sound, and a door away from the next scene.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div>
+      <small>&copy; <span id="year"></span> Urithiru. A private, non‑commercial space.</small>
+    </div>
+  </footer>
+
+  <!-- Scroll-reveal -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.reveal');
+
+      if (prefersReduced) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
 </body>
 </html>
