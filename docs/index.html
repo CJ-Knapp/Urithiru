@@ -1,117 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+---
+layout: default
+title: Home
+description: Urithiru is a private, Art Deco hideaway inspired by the Stormlight Archive’s skybound city.
+---
 
-  <title>Urithiru — Home</title>
-  <meta name="description" content="Urithiru is a private, Art Deco hideaway inspired by the Stormlight Archive’s skybound city." />
-  <meta name="theme-color" content="#0d0d0d" />
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner reveal">
+    <h1 id="hero-title" class="hero-title wordmark">URITHIRU</h1>
+    <p class="hero-sub">
+      A private, members‑only hideaway inspired by the Stormlight Archive’s skybound city.
+    </p>
+    <p class="oaths"><em>Life before death. Strength before weakness. Journey before destination.</em></p>
+    <a class="cta" href="{{ '/cocktails.html' | relative_url }}">View the Menu</a>
+  </div>
+</section>
 
-  <!-- Faster font loads -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<section class="panel panel--alt" aria-labelledby="inspiration">
+  <div class="panel-inner reveal">
+    <figure class="panel-media">
+      <img src="{{ '/images/Urithiru.jpeg' | relative_url }}" alt="Art Deco lines and luminous gold accents" loading="lazy" decoding="async" />
+    </figure>
+    <div class="panel-copy">
+      <h2 id="inspiration"><span>Inspiration</span></h2>
+      <p>Urithiru is named for the legendary city in the <em>Stormlight Archive</em>—a sanctuary, a nexus, a place of light above the storms. Our little version is a nod to that spirit: refuge, ritual, and a touch of wonder.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Fonts & styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3" />
-</head>
-<body>
-  <!-- Sticky Site Nav -->
-  <header class="site-nav" role="banner">
-    <a class="brand" href="./" aria-label="Urithiru home">URITHIRU</a>
-    <nav aria-label="Primary">
-      <a href="./">Home</a>
-      <a href="./cocktails.html">Libations</a>
-      <a href="./contact.html" aria-current="page">Contact</a>
-    </nav>
-  </header>
+<section class="panel" aria-labelledby="location">
+  <div class="panel-inner reveal">
+    <div class="panel-copy">
+      <h2 id="location"><span>Location</span></h2>
+      <p>Tucked in the basement of <strong>Chateau Knapp</strong>, Urithiru is a cozy, low‑light retreat—gold on black, clean lines, and the quiet hum of glassware.</p>
+    </div>
+    <figure class="panel-media">
+      <img src="{{ '/images/cocktail-sample.jpg' | relative_url }}" alt="Cozy basement lounge vibe" loading="lazy" decoding="async" />
+    </figure>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <main id="main-content">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-inner reveal">
-        <h1 id="hero-title" class="hero-title wordmark">URITHIRU</h1>
-        <p class="hero-sub">
-          A private, members‑only hideaway inspired by the Stormlight Archive’s skybound city.
-        </p>
-        <p class="oaths"><em>Life before death. Strength before weakness. Journey before destination.</em></p>
-        <a class="cta" href="./cocktails.html">View the Menu</a>
-      </div>
-    </section>
-
-    <!-- Panels -->
-    <section class="panel panel--alt" aria-labelledby="inspiration">
-      <div class="panel-inner reveal">
-        <figure class="panel-media">
-          <img src="images/Urithiru.jpeg" alt="Art Deco lines and luminous gold accents" loading="lazy" decoding="async" />
-        </figure>
-        <div class="panel-copy">
-          <h2 id="inspiration"><span>Inspiration</span></h2>
-          <p>
-            Urithiru is named for the legendary city in the <em>Stormlight Archive</em>—a sanctuary, a nexus, a place of light above the storms. Our little version is a nod to that spirit: refuge, ritual, and a touch of wonder.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="location">
-      <div class="panel-inner reveal">
-        <div class="panel-copy">
-          <h2 id="location"><span>Location</span></h2>
-          <p>
-            Tucked in the basement of <strong>Chateau Knapp</strong> (our affectionate nickname for home), Urithiru is a cozy, low‑light retreat—gold on black, clean lines, and the quiet hum of glassware.
-          </p>
-        </div>
-        <figure class="panel-media">
-          <img src="images/cocktail-sample.jpg" alt="Cozy basement lounge vibe" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-    </section>
-
-    <section class="panel panel--alt" aria-labelledby="theater">
-      <div class="panel-inner reveal">
-        <figure class="panel-media">
-          <img src="images/theater-sample.jpg" alt="Adjacent theater room seating and screen" loading="lazy" decoding="async" />
-        </figure>
-        <div class="panel-copy">
-          <h2 id="theater"><span>Adjacent to the Theater</span></h2>
-          <p>
-            Steps from the theater room, this is the perfect intermission bar—martinis before the feature, amaro after the credits. Dim lights, crisp sound, and a door away from the next scene.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <small>&copy; <span id="year"></span> Urithiru. A private, non‑commercial space.</small>
-  </footer>
-
-  <!-- Scroll-reveal (respects reduced-motion) -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function () {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal');
-      if (prefersReduced) { els.forEach(el => el.classList.add('is-visible')); return; }
-
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
-
-  <noscript>
-    <style>.reveal{opacity:1;transform:none}</style>
-  </noscript>
-</body>
-</html>
+<section class="panel panel--alt" aria-labelledby="theater">
+  <div class="panel-inner reveal">
+    <figure class="panel-media">
+      <img src="{{ '/images/theater-sample.jpg' | relative_url }}" alt="Adjacent theater room seating and screen" loading="lazy" decoding="async" />
+    </figure>
+    <div class="panel-copy">
+      <h2 id="theater"><span>Adjacent to the Theater</span></h2>
+      <p>Steps from the theater room, this is the perfect intermission bar—martinis before the feature, amaro after the credits. Dim lights, crisp sound, and a door away from the next scene.</p>
+    </div>
+  </div>
+</section>

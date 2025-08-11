@@ -1,0 +1,10 @@
+title: Urithiru
+description: A private, Art Deco hideaway inspired by the Stormlight Archive’s skybound city.
+# Your public Pages URL pieces:
+url: "https://cj-knapp.github.io"
+baseurl: "/Urithiru"
+
+# GitHub Pages-safe plugins (none required)
+theme: null
+markdown: kramdown
+

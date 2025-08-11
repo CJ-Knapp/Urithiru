@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+
+  <!-- Main stylesheet (cache buster optional) -->
+  <link rel="stylesheet" href="{{ '/style.css?v=7' | relative_url }}" />
+</head>
+<body>
+  {% include header.html %}
+  <main id="main-content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+
+  <!-- Scroll-reveal (shared) -->
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.reveal');
+      if (prefersReduced) { els.forEach(el => el.classList.add('is-visible')); return; }
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }});
+      }, { threshold: 0.15 });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</body>
+</html>
