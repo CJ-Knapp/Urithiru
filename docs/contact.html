@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Urithiru — Contact</title>
+  <meta name="description" content="Contact Urithiru for questions or inquiries." />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+</head>
+<body>
+  <!-- Sticky Site Nav -->
+  <header class="site-nav" role="banner">
+    <a class="brand" href="./" aria-label="Urithiru home">URITHIRU</a>
+    <nav aria-label="Primary">
+      <a href="./">Home</a>
+      <a href="./cocktails.html">Libations</a>
+      <a href="./contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page title -->
+  <div class="logo">
+    <h1 class="logo-text">CONTACT</h1>
+  </div>
+
+  <!-- Contact form container -->
+  <main class="container contact-container" id="main-content">
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+
+    <h2><span>Get in Touch</span></h2>
+    <p class="contact-intro">
+      Tell me a little about your inquiry and how to reach you. I’ll get back to you as soon as I can.
+    </p>
+
+    <!-- NOTE: Replace the Formspree 'YOUR_FORMSPREE_ID' with your real ID -->
+    <form class="contact-form" action="mailto:cj.knapp@icloud.com" method="POST" enctype="text/plain">
+      <!-- helpful, human subject -->
+      <input type="hidden" name="_subject" value="Urithiru Contact Form" />
+      <!-- basic spam honeypot -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+
+      <div class="form-grid">
+        <!-- Inquiry topic -->
+        <label class="form-field">
+          <span class="form-label">Inquiry About</span>
+          <select name="topic" required>
+            <option value="" disabled selected>Select a topic</option>
+            <option>Urithiru</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <!-- Reason (short) -->
+        <label class="form-field">
+          <span class="form-label">Reason for Contact</span>
+          <input type="text" name="reason" placeholder="Reservation, collaboration, question…" required />
+        </label>
+
+        <!-- First / Last -->
+        <label class="form-field">
+          <span class="form-label">First Name</span>
+          <input type="text" name="first_name" autocomplete="given-name" required />
+        </label>
+
+        <label class="form-field">
+          <span class="form-label">Last Name</span>
+          <input type="text" name="last_name" autocomplete="family-name" required />
+        </label>
+
+        <!-- Email / Phone -->
+        <label class="form-field">
+          <span class="form-label">Email</span>
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+
+        <label class="form-field">
+          <span class="form-label">Phone (optional)</span>
+          <input type="tel" name="phone" placeholder="(###) ###‑####" inputmode="tel" />
+        </label>
+      </div>
+
+      <!-- Message -->
+      <label class="form-field form-field--full">
+        <span class="form-label">Message</span>
+        <textarea name="message" rows="6" placeholder="How may I assist?" required></textarea>
+      </label>
+
+      <!-- Submit -->
+      <button class="btn-submit" type="submit">Send Inquiry</button>
+
+      <!-- Formspree success/fail (optional redirect) -->
+      <!-- Add this to send users to a simple thank-you page after submit:
+           <input type="hidden" name="_redirect" value="https://cj-knapp.github.io/Urithiru/thank-you.html" />
+      -->
+    </form>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <small>&copy; <span id="year"></span> Urithiru. A private, non‑commercial space.</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
