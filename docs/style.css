@@ -233,6 +233,20 @@ li strong {
   opacity: 0.9;
 }
 
+.drinks-grid li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;   /* span the whole row */
+  justify-self: center;  /* center itself */
+}
+
+.drink-flavor {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: 0.25rem;
+  line-height: 1.3;
+}
 /* =========================
    Heading & List Spacing
    ========================= */
